@@ -1,0 +1,52 @@
+server:
+  port: 8080
+spring:
+  cloud:
+    schema-registry-client:
+      endpoint: http://localhost:8081
+    schema:
+      avro:
+        dynamic-schema-generation-enabled: true
+    stream:
+      bindings:
+        fooEventSupplier-out-0:
+          contentType: application/*+avro
+          destination: foo-event-v1
+          producer:
+            partition-key-expression: headers['partitionKey']
+        fooEventConsumer-in-0:
+          destination: foo-event-v1
+          contentType: application/*+avro
+          group: foo
+      kafka:
+        binder:
+          brokers: "localhost:9092"
+
+#          producer-properties:
+#            key.serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+#            value.serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+#            schema.registry.url: http://localhost:8081
+#          consumer-properties:
+#            key.deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
+#            value.deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
+#            schema.registry.url: http://localhost:8081
+#            specific.avro.reader: true
+
+#        bindings:
+#          fooEventProcessor-out-0:
+#            producer:
+#              configuration:
+#                schema.registry.url: http://localhost:8081
+#                value.serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+#          fooNotificationEventConsumer-in-0:
+#            consumer:
+#              configuration:
+#                schema.registry.url: http://localhost:8081
+#                value-deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
+#                specific.avro.reader: true
+
+logging:
+  level:
+     org.springframework: INFO
+     org.hibernate.type.descriptor.sql.BasicBinder: INFO
+     com.example.awsgluekafkaexample: INFO
