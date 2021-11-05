@@ -50,7 +50,7 @@ public class FooController {
     fooEvent.setId(String.valueOf(UUID.randomUUID()));
     fooEvent.setMessage(fooCommand.getMessage());
     streamBridge.send("fooEventSupplier-out-0", MessageBuilder.withPayload(fooEvent)
-      //.setHeader(KafkaHeaders.MESSAGE_KEY, fooEvent.getId())
+      .setHeader(KafkaHeaders.MESSAGE_KEY, fooEvent.getId())
       .setHeader("partitionKey", fooEvent.getId())
       .build());
   }

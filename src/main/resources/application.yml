@@ -4,6 +4,7 @@ spring:
   cloud:
     schema-registry-client:
       endpoint: http://localhost:8081
+      cached: true
     schema:
       avro:
         dynamic-schema-generation-enabled: true
@@ -12,8 +13,6 @@ spring:
         fooEventSupplier-out-0:
           contentType: application/*+avro
           destination: foo-event-v1
-          producer:
-            partition-key-expression: headers['partitionKey']
         fooEventConsumer-in-0:
           destination: foo-event-v1
           contentType: application/*+avro
@@ -21,29 +20,14 @@ spring:
       kafka:
         binder:
           brokers: "localhost:9092"
-
-#          producer-properties:
-#            key.serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
-#            value.serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
-#            schema.registry.url: http://localhost:8081
-#          consumer-properties:
-#            key.deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
-#            value.deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
-#            schema.registry.url: http://localhost:8081
-#            specific.avro.reader: true
-
-#        bindings:
-#          fooEventProcessor-out-0:
-#            producer:
-#              configuration:
-#                schema.registry.url: http://localhost:8081
-#                value.serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
-#          fooNotificationEventConsumer-in-0:
-#            consumer:
-#              configuration:
-#                schema.registry.url: http://localhost:8081
-#                value-deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
-#                specific.avro.reader: true
+          producer-properties:
+            key.serializer: org.apache.kafka.common.serialization.StringSerializer
+            value.serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+            schema.registry.url: http://localhost:8081
+          consumer-properties:
+            key.deserializer: org.apache.kafka.common.serialization.StringDeserializer
+            value.deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
+            schema.registry.url: http://localhost:8081
 
 logging:
   level:
