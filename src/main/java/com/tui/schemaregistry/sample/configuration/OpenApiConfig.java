@@ -1,4 +1,4 @@
-package com.tui.avro.schemaregistry.sample.configuration;
+package com.tui.schemaregistry.sample.configuration;
 
 import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;
@@ -18,7 +18,7 @@ public class OpenApiConfig {
 
   @Bean
   public GroupedOpenApi groupOpenApi() {
-    return GroupedOpenApi.builder().group("v1").packagesToScan("com.tui.avro.schemaregistry.sample.rest").build();
+    return GroupedOpenApi.builder().group("v1").packagesToScan("com.tui.schemaregistry.sample.rest").build();
 
   }
 

@@ -1,4 +1,4 @@
-package com.tui.avro.schemaregistry.sample.configuration;
+package com.tui.schemaregistry.sample.configuration;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.ObjectMapper;
