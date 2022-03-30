@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>avro-schema-registry-sample</artifactId>
+    <artifactId>schema-registry-sample</artifactId>
     <version>1.0</version>
-    <name>avro-schema-registry-sample</name>
+    <name>schema-registry-sample</name>
     <description>Demo project for Spring Boot</description>
     <properties>
         <java.version>11</java.version>
