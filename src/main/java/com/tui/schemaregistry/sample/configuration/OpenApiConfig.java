@@ -1,4 +1,4 @@
-package com.tui.avro.schemaregistry.sample.configuration;
+package com.tui.schemaregistry.sample.configuration;
 
 import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;

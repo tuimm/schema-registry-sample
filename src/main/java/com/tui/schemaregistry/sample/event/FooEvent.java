@@ -1,4 +1,4 @@
-package com.tui.avro.schemaregistry.sample.event;
+package com.tui.schemaregistry.sample.event;
 
 import lombok.Data;
 

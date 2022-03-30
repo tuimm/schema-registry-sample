@@ -1,4 +1,4 @@
-package com.tui.avro.schemaregistry.sample.rest;
+package com.tui.schemaregistry.sample.rest;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
