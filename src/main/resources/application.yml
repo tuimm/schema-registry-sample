@@ -4,9 +4,6 @@ spring:
   cloud:
     function:
       definition: fooEventConsumer;fooEventSupplier
-    schemaRegistryClient:
-      endpoint: http://localhost:8081
-      cached: true
     stream:
       bindings:
         fooEventSupplier-out-0:
@@ -25,16 +22,11 @@ spring:
             schema.registry.url: http://localhost:8081
   kafka:
     consumer:
-      value-deserializer: io.confluent.kafka.serializers.json.KafkaJsonSchemaDeserializer
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
     producer:
-      value-serializer: io.confluent.kafka.serializers.json.KafkaJsonSchemaSerializer
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
-
-
-
 logging:
   level:
      org.springframework: INFO
      org.hibernate.type.descriptor.sql.BasicBinder: INFO
-     com.example.awsgluekafkaexample: INFO
+     com.tui.schemaregistry.sample: INFO
