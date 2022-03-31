@@ -11,22 +11,28 @@ spring:
       bindings:
         fooEventSupplier-out-0:
           contentType: application/json
-          destination: foo-event-topic-new
+          destination: foo-event-topic-123
         fooEventConsumer-in-0:
           contentType: application/json
-          destination: foo-event-topic-new
+          destination: foo-event-topic-123
           group: foo
       kafka:
         binder:
           brokers: "localhost:9092"
           producer-properties:
-            key.serializer: org.apache.kafka.common.serialization.StringSerializer
-            value.serializer: io.confluent.kafka.serializers.json.KafkaJsonSchemaSerializer
             schema.registry.url: http://localhost:8081
           consumer-properties:
-            key.deserializer: org.apache.kafka.common.serialization.StringDeserializer
-            value.serializer: io.confluent.kafka.serializers.json.KafkaJsonSchemaDeserializer
             schema.registry.url: http://localhost:8081
+  kafka:
+    consumer:
+      value-deserializer: io.confluent.kafka.serializers.json.KafkaJsonSchemaDeserializer
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      value-serializer: io.confluent.kafka.serializers.json.KafkaJsonSchemaSerializer
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+
+
 logging:
   level:
      org.springframework: INFO
