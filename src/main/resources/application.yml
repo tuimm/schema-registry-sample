@@ -11,28 +11,29 @@ spring:
       bindings:
         fooEventSupplier-out-0:
           contentType: application/json
-          destination: foo-event-topic-123
+          destination: foo-event-topic-8
+          producer:
+            useNativeEncoding: true
         fooEventConsumer-in-0:
           contentType: application/json
-          destination: foo-event-topic-123
+          destination: foo-event-topic-8
           group: foo
+          consumer:
+            useNativeDecoding: true
       kafka:
         binder:
           brokers: "localhost:9092"
           producer-properties:
             schema.registry.url: http://localhost:8081
+            value.serializer: io.confluent.kafka.serializers.json.KafkaJsonSchemaSerializer
+            key.serializer: org.apache.kafka.common.serialization.StringSerializer
           consumer-properties:
             schema.registry.url: http://localhost:8081
-  kafka:
-    consumer:
-      value-deserializer: io.confluent.kafka.serializers.json.KafkaJsonSchemaDeserializer
-      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-    producer:
-      value-serializer: io.confluent.kafka.serializers.json.KafkaJsonSchemaSerializer
-      key-serializer: org.apache.kafka.common.serialization.StringSerializer
-
-
-
+            value.deserializer: io.confluent.kafka.serializers.json.KafkaJsonSchemaDeserializer
+            key.deserializer: org.apache.kafka.common.serialization.StringDeserializer
+            #json.value.type: com.fasterxml.jackson.databind.JsonNode
+            json.value.type: com.tui.schemaregistry.sample.event.FooEvent
+            #type.property: javaType
 logging:
   level:
      org.springframework: INFO
