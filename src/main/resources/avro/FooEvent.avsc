@@ -1,7 +1,7 @@
 {
 	"type": "record",
 	"name": "FooEvent",
-	"namespace": "com.tui.avro.schemaregistry.sample",
+	"namespace": "com.tui.schemaregistry.sample",
 	"fields": [
 	 {
 		"name": "id",

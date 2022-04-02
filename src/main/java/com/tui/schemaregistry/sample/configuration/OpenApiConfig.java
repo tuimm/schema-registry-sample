@@ -18,7 +18,7 @@ public class OpenApiConfig {
 
   @Bean
   public GroupedOpenApi groupOpenApi() {
-    return GroupedOpenApi.builder().group("v1").packagesToScan("com.tui.avro.schemaregistry.sample.rest").build();
+    return GroupedOpenApi.builder().group("v1").packagesToScan("com.tui.schemaregistry.sample.rest").build();
 
   }
 
