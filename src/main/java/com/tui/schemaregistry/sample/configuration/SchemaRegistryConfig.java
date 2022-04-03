@@ -1,4 +1,4 @@
-package com.tui.avro.schemaregistry.sample.configuration;
+package com.tui.schemaregistry.sample.configuration;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.schema.registry.client.ConfluentSchemaRegistryClient;
