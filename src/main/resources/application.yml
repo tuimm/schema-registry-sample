@@ -32,8 +32,9 @@ spring:
             key.deserializer: org.apache.kafka.common.serialization.StringDeserializer
             value.deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
             schema.registry.url: http://localhost:8081
+            specific.avro.reader: true
 logging:
   level:
      org.springframework: INFO
      org.hibernate.type.descriptor.sql.BasicBinder: INFO
-     com.tui.schemaregistry.sample: INFO
+     com.example.awsgluekafkaexample: INFO
