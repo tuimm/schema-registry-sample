@@ -1,6 +1,7 @@
 package com.tui.avro.schemaregistry.sample.rest;
 
-import com.tui.avro.schemaregistry.sample.event.FooEvent;
+//import com.tui.avro.schemaregistry.sample.event.FooEvent;
+import com.tui.avro.schemaregistry.sample.FooEvent;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;

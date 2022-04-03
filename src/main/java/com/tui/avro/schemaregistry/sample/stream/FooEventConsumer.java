@@ -1,6 +1,7 @@
 package com.tui.avro.schemaregistry.sample.stream;
 
-import com.tui.avro.schemaregistry.sample.event.FooEvent;
+import com.tui.avro.schemaregistry.sample.FooEvent;
+//import com.tui.avro.schemaregistry.sample.event.FooEvent;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Component;
 
